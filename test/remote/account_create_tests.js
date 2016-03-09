@@ -393,6 +393,79 @@ TestServer.start(config)
   )
 
   test(
+    'account creation works with minimal metricsContext metadata',
+    function (t) {
+      var email = server.uniqueEmail()
+      return Client.create(config.publicUrl, email, 'foo', {
+        metricsContext: {
+          flowId: 'deadbeefbaadf00ddeadbeefbaadf00d',
+          flowBeginTime: 1
+        }
+      }).then(function (client) {
+        t.ok(client, 'created account')
+      })
+    }
+  )
+
+  test(
+    'account creation fails with invalid metricsContext flowId',
+    function (t) {
+      var email = server.uniqueEmail()
+      return Client.create(config.publicUrl, email, 'foo', {
+        metricsContext: {
+          flowId: 'deadbeefbaadf00d',
+          flowBeginTime: 1
+        }
+      }).then(function () {
+        t.fail('account creation should have failed')
+      }, function (err) {
+        t.ok(err, 'account creation failed')
+      })
+    }
+  )
+
+  test(
+    'account creation fails with invalid metricsContext flowBeginTime',
+    function (t) {
+      var email = server.uniqueEmail()
+      return Client.create(config.publicUrl, email, 'foo', {
+        metricsContext: {
+          flowId: 'deadbeefbaadf00ddeadbeefbaadf00d',
+          flowBeginTime: 0
+        }
+      }).then(function () {
+        t.fail('account creation should have failed')
+      }, function (err) {
+        t.ok(err, 'account creation failed')
+      })
+    }
+  )
+
+  test(
+    'account creation works with maximal metricsContext metadata',
+    function (t) {
+      var email = server.uniqueEmail()
+      return Client.create(config.publicUrl, email, 'foo', {
+        metricsContext: {
+          flowId: 'deadbeefbaadf00ddeadbeefbaadf00d',
+          flowBeginTime: 1,
+          context: 'foo',
+          entrypoint: 'bar',
+          migration: 'baz',
+          service: 'qux',
+          utmCampaign: 'wibble',
+          utmContent: 'blurgh',
+          utmMedium: 'blee',
+          utmSource: 'fnarr',
+          utmTerm: 'frang'
+        }
+      }).then(function (client) {
+        t.ok(client, 'created account')
+      })
+    }
+  )
+
+  test(
     'teardown',
     function (t) {
       server.stop()
