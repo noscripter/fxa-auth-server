@@ -35,7 +35,7 @@
     "envc": "2.4.0",
     "fxa-auth-mailer": "git+https://github.com/mozilla/fxa-auth-mailer.git#master",
     "fxa-jwtool": "0.7.1",
-    "hapi": "8.8.1",
+    "hapi": "11.0.4",
     "hapi-auth-hawk": "3.0.1",
     "hapi-fxa-oauth": "2.2.0",
     "hkdf": "0.0.2",
@@ -45,7 +45,7 @@
     "node-uap": "git+https://github.com/shane-tomlinson/node-uap.git#13fa830e8",
     "openid": "1.0.0",
     "poolee": "1.0.0",
-    "request": "2.65.0",
+    "request": "2.82.0",
     "scrypt-hash": "1.1.13",
     "through": "2.3.8",
     "uuid": "1.4.1"
