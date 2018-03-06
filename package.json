@@ -35,7 +35,7 @@
     "envc": "2.4.0",
     "fxa-auth-mailer": "git+https://github.com/mozilla/fxa-auth-mailer.git#master",
     "fxa-jwtool": "0.7.1",
-    "hapi": "8.8.1",
+    "hapi": "17.0.0",
     "hapi-auth-hawk": "3.0.1",
     "hapi-fxa-oauth": "2.2.0",
     "hkdf": "0.0.2",
