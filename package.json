@@ -45,7 +45,7 @@
     "node-uap": "git+https://github.com/shane-tomlinson/node-uap.git#13fa830e8",
     "openid": "1.0.0",
     "poolee": "1.0.0",
-    "request": "2.65.0",
+    "request": "2.81.0",
     "scrypt-hash": "1.1.13",
     "through": "2.3.8",
     "uuid": "1.4.1"
